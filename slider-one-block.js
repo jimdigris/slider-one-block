@@ -5,7 +5,7 @@
     const sliderWrap = document.querySelector('.sliderWrap');
     const slider = {
         image: sliderWrap.querySelector('img'),
-        speed: 2000,
+        speed: 6000,
 
         slide: [
             {
@@ -35,6 +35,8 @@
     setInterval(startSlider, slider.speed);
 
     function startSlider() {
+
+        slider.image.classList.toggle('anim-show');
         slider.image.src = slider.slide[activeSlide].src;
         slider.image.alt = slider.slide[activeSlide].alt;
         slider.image.title = slider.slide[activeSlide].title;
@@ -43,6 +45,10 @@
         if (activeSlide === slider.slide.length) {
             activeSlide = 0;
         }
+
+        setTimeout(function () {
+            slider.image.classList.toggle('anim-show');
+        }, 3000);
     }
 
 })(); 
